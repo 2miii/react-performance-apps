@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 // B 여러 컴포넌트로 나눠넣음
 
 
@@ -21,6 +21,7 @@ const ListItem = React.memo(({ post }) => {
 
 
 const List = React.memo( ({ posts }) => {
+  console.log('List Component is rendering') 
   return (
     <ul>
       {posts.map(post => (
@@ -31,14 +32,17 @@ const List = React.memo( ({ posts }) => {
 })
 
 export const B = ({ message, posts }) => {
+  console.log('B Component is rendering');
+  //use
+  const testFunction = useCallback(() => {},[]);
   return (
     <div>
       <h1>B Component</h1>
       <Message message={message}/>
-      <List posts={posts}/>
+      <List posts={posts} testFunction={testFunction} />
     </div>
   )
 }
-
+//렌더링이 3번정도 되는것은 index.js 의 </React.StrictMode >떄문
 
 export default B;
