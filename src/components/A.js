@@ -1,4 +1,5 @@
 import React from 'react'
+// A 모든 요소를 하나의 컴포넌트에 넣음
 
 export const A = ({message, posts}) => {
   return (
@@ -12,11 +13,11 @@ export const A = ({message, posts}) => {
                          <li key={post.id}> 
                               <p>{post.title}</p>
                          </li>
-                    )
+                    );
                })}
           </ul>
     </div>
-  )
-}
+  );
+};
 
 export default A;
